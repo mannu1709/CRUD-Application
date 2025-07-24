@@ -1,0 +1,41 @@
+{% extends "myapp/base.html" %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <!-- Add Student Form -->
+        <div class="col-md-5">
+            <div class="card shadow border-primary mb-4" style="min-height: 450px;">
+                <div class="card-body">
+                    <h3 class="card-header bg-primary text-white mb-4 text-center">Add Student</h3>
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="id_name" class="form-label">Name</label>
+                            {{ form.name }}
+                            {{ form.name.errors }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_roll" class="form-label">Roll</label>
+                            {{ form.roll }}
+                            {{ form.roll.errors }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_city" class="form-label">City</label>
+                            {{ form.city }}
+                            {{ form.city.errors }}
+                        </div>
+                        <button type="submit" class="btn mt-4 btn-primary w-100">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="text-center mt-5">
+    <a href="{% url 'students_list' %}" class="btn btn-primary mb-5">View All Students</a>
+</div>
+
+{% endblock %}
